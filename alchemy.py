@@ -20,6 +20,22 @@
 #   print(Fire(), '+', Air(), '=', Fire() + Air())
 
 # TODO здесь ваш код
+elements = 'Вода Воздух Огонь Земля Шторм Пар Грязь Молния Пыль Лава'.split()
+classes = []
+
+class Element:
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return self.name
+
+
+for name in elements:
+    elementaly = Element(name)
+    print(Element(name))
+    classes.append(elementaly)
+
+print(classes.__str__())
 
 # Усложненное задание (делать по желанию)
 # Добавить еще элемент в игру.
