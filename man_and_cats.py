@@ -26,9 +26,53 @@ from random import randint
 # Человеку и коту надо вместе прожить 365 дней.
 
 # TODO здесь ваш код
+class Cat:
+    def __init__(self, name):
+        self.name = name
+        self.fullness = 10
+        self.house = None
+    def __str__(self):
+        return f'Я {self.name}, сыность:{self.fullness}'
+
+    def eat(self):
+        self.fullness+=20
+        self.house.food-=20
+
+class Man:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return f'Я {self.name}'
+
+    def take_cat(self, house, cat):
+        self.house = house
+        self.house.mud -= 30
+        print(f'В дом въехал {cat.name}')
+
+    def pay_food(self):
+        self.house.food += 100
+        self.house.money -= 30
+
+class House:
+    def __init__(self):
+        self.food = 0
+        self.money = 50
+        self.mud = 0
+    def __str__(self):
+        return f'В доме еды:{self.food}, денег:{self.money} и грязи:{self.mud}'
 
 # Усложненное задание (делать по желанию)
 # Создать несколько (2-3) котов и подселить их в дом к человеку.
 # Им всем вместе так же надо прожить 365 дней.
 
 # (Можно определить критическое количество котов, которое может прокормить человек...)
+citty = Cat('Kittyy')
+print(citty)
+
+my_house = House()
+print(my_house)
+
+Vasia = Man('Вассилий')
+Vasia.take_cat(house=my_house, cat=citty)
+print(my_house)
